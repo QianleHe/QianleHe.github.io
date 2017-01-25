@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives | QianleHe</title>
+  <title>The Coin in Line in lintcode | QianleHe</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -168,75 +168,99 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/Ocean.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/01/25/The-Coin-in-Line-in-lintcode/">The Coin in Line in lintcode</a></h4>
-                            
-                            <p><time datetime="2017-01-25T06:46:14.000Z"><a href="/2017/01/25/The-Coin-in-Line-in-lintcode/">2017-01-25</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/01/21/hello-world/">Hello World</a></h4>
-                            
-                            <p><time datetime="2017-01-22T02:37:01.000Z"><a href="/2017/01/21/hello-world/">2017-01-21</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-01-25T06:46:14.000Z" itemprop="datePublished">
+          2017-01-25
+      </time>
+    
+    
+    | 
+    <a href='/tags/Dynamic-Programming-Game-Theory/'>Dynamic Programming, Game Theory</a>
+    
+    
+</span>
+                <h1>The Coin in Line in lintcode</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h2 id="For-the-Coins-in-a-Line-I"><a href="#For-the-Coins-in-a-Line-I" class="headerlink" title="For the Coins in a Line I"></a>For the Coins in a Line I</h2><p>There are n coins in a line. Two players take turns to take one or two coins from right side until there are no more coins left. The player who take the last coin wins.</p>
+<p>Could you please decide the first play will win or lose?</p>
+<p>这是一个谁先取硬币就能赢的问题，每次你可以取一枚或者两枚硬币，每一枚的硬币的数额是一样的（后面的两题的硬币数额是不一样的）。所以这是一个动态规划的博弈类问题。</p>
+<p>For my idea:</p>
+<ol>
+<li>因为这是一个动态规划的博弈类问题，所以首先我们先假设一个数组，来储存每一个硬币数的先手的结果，从小到大，滚动递推到n个硬币的结果。</li>
+<li>然后我们需要画图来寻找每次先手取不同一个硬币数量的结果。（如code block里面的图）</li>
+<li>f[n]代表当硬币剩下n个，是否先手能赢。如图，后手可能取走一枚或者两枚, 在这之后，又轮到先手取硬币，剩下f[n-2],f[n-3],f[n-4]。很容易理解，这几个剩余硬币数的情况的先手能不能赢得情况决定了f[n]的结果。所以f[n-2],f[n-3]是后手取一个硬币的情况，f[n-3],f[n-4]是后手取两个硬币的情况。</li>
+<li>所以滚动到f[0],f[1],f[2],f[3]能直接判断出先手是否能胜利。</li>
+</ol>
+<p><strong>This is the code part</strong></p>
+<pre><code>public class Solution {
+public boolean firstWillWin(int n) {
+    // write your code here
+//             f[n]
+//             /  \
+//           /    \
+//       f[n-1]    f[n-2]
+//         /   \   /   \
+//       /      \ /      \
+//   f[n-2]f[n-3]f[n-3]f[n-4]  
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
+
+    int[] dp = new int[n + 1];
+    return dowin(dp, n);
+}
+
+public boolean dowin(int[] dp, int n) { //0 for unvisited, 1 for true, 2 for false
+    if (dp[n] != 0) { // it  means that it is visited
+        if (dp[n] == 1) return true;
+        else return false;
+    } else {
+        if (n == 0) {
+            dp[n] = 2;
+        } else if (n == 1) {
+            dp[n] = 1;
+        } else if (n == 2) {
+            dp[n] = 1;
+        } else if (n == 3) {
+            dp[n] = 2;
+        } else {
+            if ((dowin(dp, n - 2) &amp;&amp; dowin(dp, n - 3)) || (dowin(dp, n - 3) &amp;&amp; dowin(dp, n - 4))) {
+                dp[n] = 1;
+            } else {
+                dp[n] = 2;
+            }
+        }
+        if (dp[n] == 1) return true;
+        return false;
+    }
+}
+}
+</code></pre>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2017/01/21/hello-world/">
+        Hello World →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
