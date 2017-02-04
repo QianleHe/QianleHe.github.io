@@ -1555,7 +1555,7 @@ hr.byline-accent {
 	text-align: center; */
 	clear: both;
 	border: 1px solid  black;
-	width: auto;
+	width: 100%;
 }
 
 
