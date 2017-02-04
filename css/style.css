@@ -1584,7 +1584,8 @@ hr.byline-accent {
 	margin: 0 auto;
 	text-align: center;
 	border: 1px solid  black;
-	width: 50%;
+	width: 100%;
+	max-width: 700px;
 }
 
 #spspan a{
