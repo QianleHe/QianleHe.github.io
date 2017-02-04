@@ -1549,14 +1549,15 @@ hr.byline-accent {
 }
 
 
-
+/* 
 #myintro {
-	/* margin-left: 30%;
-	text-align: center; */
+	
 	clear: both;
 	border: 1px solid  black;
 	width: 100%;
-}
+	min-width: 768px;
+	overflow: auto;
+} */
 
 
 
@@ -1583,7 +1584,7 @@ hr.byline-accent {
 	margin: 0 auto;
 	text-align: center;
 	border: 1px solid  black;
-	width: 700px;
+	width: 50%;
 }
 
 #spspan a{
