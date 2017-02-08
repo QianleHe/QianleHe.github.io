@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives | QianleHe</title>
+  <title>6. ZigZag Conversion | QianleHe</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -168,105 +168,81 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/Ocean.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/02/08/6-ZigZag-Conversion/">6. ZigZag Conversion</a></h4>
-                            
-                            <p><time datetime="2017-02-08T06:28:28.000Z"><a href="/2017/02/08/6-ZigZag-Conversion/">2017-02-08</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/02/03/146-LRU-Cache-in-leetcode/">146. LRU Cache in leetcode</a></h4>
-                            
-                            <p><time datetime="2017-02-03T20:03:22.000Z"><a href="/2017/02/03/146-LRU-Cache-in-leetcode/">2017-02-03</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/02/03/The-best-items-I-bought-in-2016/">The best items I bought in 2016</a></h4>
-                            
-                            <p><time datetime="2017-02-03T06:50:44.000Z"><a href="/2017/02/03/The-best-items-I-bought-in-2016/">2017-02-03</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/01/25/The-Coin-in-Line-in-lintcode/">The Coin in Line in lintcode</a></h4>
-                            
-                            <p><time datetime="2017-01-25T06:46:14.000Z"><a href="/2017/01/25/The-Coin-in-Line-in-lintcode/">2017-01-25</a></time></p>
-                        </div>
-                    
-                        
-                            </div><div class="row boxes">
-                            
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/01/21/hello-world/">Hello World</a></h4>
-                            
-                            <p><time datetime="2017-01-22T02:37:01.000Z"><a href="/2017/01/21/hello-world/">2017-01-21</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-02-08T06:28:28.000Z" itemprop="datePublished">
+          2017-02-08
+      </time>
+    
+    
+    | 
+    <a href='/tags/Amazon-String/'>Amazon, String</a>
+    
+    
+</span>
+                <h1>6. ZigZag Conversion</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<p><em>This question is a little tricky. There are 2 ways to solve it. First of all, you find calculate the law the ZigZag in different number of row. Secondly, you can use a 2D StringBuilder to store every character in ZigZag position. And then, you can connect the 2D StringBuilder together. So it is the final result.</em></p>
+<p>###The Question:</p>
+<p>The string <strong>“PAYPALISHIRING”</strong> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
+<pre><code>P   A   H   N
+P L S I I G
+Y   I   R
+</code></pre><p>And then read line by line: “PAHNAPLSIIGYIR”<br>Write the code that will take a string and make this conversion given a number of rows:</p>
+<pre><code>string convert(string text, int nRows);
+</code></pre><p><strong>convert(“PAYPALISHIRING”, 3)</strong> should return <strong>“PAHNAPLSIIGYIR”</strong>.</p>
+<p>In my point of view, I prefer the second solution. Because when you are in an interview, you will be nervous that you cannot calculate the right law of ZigZag. So the 2D StringBuilder will be easy to understand and it has O(n) complexity.</p>
+<p><strong>The code part</strong></p>
+<pre><code>public class Solution {
+    public String convert(String s, int numRows) { 
+    // try to find the law of ZigZag
+    // corner condition when s == 0;
+    if (s.length() &lt; 1 || numRows &lt;= 1) return s;
+        StringBuilder[] sb = new StringBuilder[numRows];
+    for (int i = 0; i &lt; numRows; i++) {
+        sb[i] = new StringBuilder(&quot;&quot;);
+    }
+    int index = 0;
+    int incre = 1;
+    for (int i = 0; i &lt; s.length(); i++) {
+        sb[index].append(s.charAt(i));
+        if (index == 0) incre = 1;
+        if (index == numRows - 1) incre = -1;
+        index += incre;
+    }
+    for (int i = 1; i &lt; numRows; i++) {
+        sb[0].append(sb[i]);
+    }
+    return sb[0].toString();
+    }
+}
+</code></pre>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2017/02/03/146-LRU-Cache-in-leetcode/">
+        146. LRU Cache in leetcode →
+    </a>
+    
+</nav>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>Do not worry, </br> be happy,hahaha</p>
-        </div>
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
