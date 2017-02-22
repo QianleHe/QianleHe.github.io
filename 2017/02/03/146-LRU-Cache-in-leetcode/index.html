@@ -200,8 +200,9 @@
 <li>Some corner situations should be considered. First of all, when the cache is full, you need the delete the oldest node and add the newest. Secondly, when you call the “PUT” function and it has already this key, so you need to update the new value into this key. At the same time, this key is latest updated. So you need to move this key to the head of linked list.</li>
 </ul>
 <p><strong>Here is the code part</strong></p>
-<p>public class LRUCache {</p>
-<pre><code>public class Doublelinkednode {
+<pre><code>public class LRUCache {
+
+public class Doublelinkednode {
     int key;
     int value;
     Doublelinkednode pre;
